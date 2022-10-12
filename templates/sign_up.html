@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block title %}
+    nohope/sign_up
+{% endblock %}
+{% block body %}
+    <form method="post">
+        <label for="username">define a username : </label>
+        <input name="username" required>
+        <hr>
+        <label for="neanderthal">set a password : </label>
+        <input type="password" name="neanderthal" required>
+        <hr>
+        <label for="confirmation">please re-enter your password : </label>
+        <input type="password" name="confirmation" required>
+        <hr>
+        <button type="submit">create account</button>
+    </form>
+{% endblock %}

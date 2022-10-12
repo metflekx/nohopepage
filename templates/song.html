@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+{% block title %}
+    song
+{% endblock %}
+{% block body %}
+    <div class="song_page">
+    <div class="song">
+    </div>
+    {% if session["user_id"] %}
+        <form method="post" class="comment-form">
+            <label for="comment">comment : </label>
+            <textarea class="form-control" name="comment" rows="3"></textarea>
+            <button type="submit">post comment</button>
+        </form>
+    {% endif %}
+    <div class="comment_section container">
+        {% for each in comments %}
+            <div class="comment_box">
+                <p class="comment">{{ each[0] }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    </div>
+{% endblock %}

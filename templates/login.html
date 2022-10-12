@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+    nohope/login
+{% endblock %}
+{% block body %}
+    <form method="post">
+        <label for="username">username : </label>
+        <input type="text" name="username" required>
+        <hr>
+        <label for="neanderthal">password : </label>
+        <input type="password" name="neanderthal" required>
+        <hr>
+        <button type="submit">login</button>
+    </form>
+{% endblock %}
