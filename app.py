@@ -98,10 +98,8 @@ def song():
     # access song title(is in url_parameter)
     song_title = request.full_path[14:]
     # keeps track of current song_id
-    print(song_title)
     song_id = db.execute(
         "SELECT song_id FROM songs WHERE title = ?", (song_title, )).fetchone()[0]
-    print(song_id)
 
     # access comments related to song
     comments = db.execute(
@@ -124,6 +122,7 @@ def song():
         con.commit()
 
         # redirects user to home to avoid repeating post request
+
         return redirect("/")
 
     return render_template("song.html", comments=comments)

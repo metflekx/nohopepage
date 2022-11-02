@@ -16,6 +16,7 @@
     <div class="comment_section container">
         {% for each in comments %}
             <div class="comment_box">
+                <h4 class="commenter"> {{ each[2] }}</h4>
                 <p class="comment">{{ each[0] }}</p>
             </div>
         {% endfor %}
