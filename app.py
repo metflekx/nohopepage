@@ -102,8 +102,8 @@ def song():
         "SELECT song_id FROM songs WHERE title = ?", (song_title, )).fetchone()[0]
 
     # access comments related to song
-    comments = db.execute(
-        "SELECT comment_message FROM comments WHERE song_id = ?", (song_id, )).fetchall()
+    comments_data = db.execute(
+        "SELECT comment_message, user_id FROM comments WHERE song_id = ?", (song_id, )).fetchall()
 
     # checks if user posts a comments
     if request.method == "POST":
@@ -125,8 +125,15 @@ def song():
 
         return redirect("/")
 
-    return render_template("song.html", comments=comments)
+    #creates a dict to store comments and commenters and nest it inside a list
+    comments_list = list()
+    #accesses the username of commenters
+    for comment in comments_data:
+        commenter = db.execute("SELECT username FROM userinfo WHERE id = ? ",(comment[1], )).fetchone()[0]
+        comments_list.append({"message" : comment[0], "username" : commenter})
 
+
+    return render_template("song.html", comments_list=comments_list)
 
 if __name__ == "__main__":
     app.config["SECRET_KEY"] = "fuckfuckfuck"
