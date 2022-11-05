@@ -16,6 +16,11 @@ db = con.cursor()
 app = Flask(__name__)
 
 
+@app.route("/wiki")
+def wiki():
+    return render_template("wiki.html")
+
+
 @app.route("/")
 def index():
     # rendering home_page
@@ -125,15 +130,16 @@ def song():
 
         return redirect("/")
 
-    #creates a dict to store comments and commenters and nest it inside a list
+    # creates a dict to store comments and commenters and nest it inside a list
     comments_list = list()
-    #accesses the username of commenters
+    # accesses the username of commenters
     for comment in comments_data:
-        commenter = db.execute("SELECT username FROM userinfo WHERE id = ? ",(comment[1], )).fetchone()[0]
-        comments_list.append({"message" : comment[0], "username" : commenter})
-
+        commenter = db.execute(
+            "SELECT username FROM userinfo WHERE id = ? ", (comment[1], )).fetchone()[0]
+        comments_list.append({"message": comment[0], "username": commenter})
 
     return render_template("song.html", comments_list=comments_list)
+
 
 if __name__ == "__main__":
     app.config["SECRET_KEY"] = "fuckfuckfuck"

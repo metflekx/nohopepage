@@ -1,84 +1,74 @@
+<div class="index">
 {% extends "layout.html" %}
 {% block title %}
     mainpage
 {% endblock %}
 {% block body %}
-    <div class="index">
+        <!-- ====== -->
+        <!-- HEADER -->
+        <!-- ====== -->
         <header class="query-bg" data-parallax="scroll">
-
-            <div class="d-flex search-form">
+            <div class="search-form">
                 <input class="query-box form-control tm-search-input" type="search" placeholder="Search" aria-label="Search">
                 <button class="query-btn btn btn-light tm-search-btn" type="submit">
                     <i class="fas fa-search">search</i>
                 </button>
-            </div>                
-            
+            </div>                 
         </header>
+        <!-- sub header  -->
+        <div class="rectangle">
+            nohope
+        </div>
 
-        
-            <!-- heading  -->
-            <div class="container mt-3 tm-container-content tm-mt-60">
-                <div class="row mb-4">
-                    <h2 class="col-6 tm-text-primary">
-                        latest music
-                    </h2>
-                </div>
-            </div>
-
+        <!-- ===== -->
+        <!-- MAIN -->
+        <!-- ===== -->
+        <main>
             <!-- ===== -->
             <!-- POSTS -->
             <!-- ===== -->
-        <main>
-            <div class="container row">
-            <!-- fight_club -->
-                <div class="music_box">
-                    <figure>
-                        <img src="../static/images/fight_club.jpeg" alt="fight_club" class="img-fluid">
-                        <figcaption class="caption d-flex align-items-center justify-content-center">
+                <!-- a post -->   
+                <div class="post_container">
+                    <img src="../static/images/fight_club.jpeg" alt="fight_club" class="img-fluid">
+                    <div class="caption-container">
+                        <figcaption>
                             <h2>fight_club</h2>
-                        </figcaption>                    
-                    </figure>
-
+                        </figcaption>          
                         <audio controls>
                             <source src="../static/music/fight_club.mp3">
-                        </audio>
+                        </audio>          
+                    </div>
                 </div>
-            <!-- cigare_soorati -->
-                <div class="music_box">
-                    <figure>
-                        <img src="../static/images/cigare_soorati.jpeg" alt="cigare_soorati" class="img-fluid">
-                        
-                        <figcaption class="caption d-flex align-items-center justify-content-center">
+                <!-- a post -->       
+                <div class="post_container">
+                    <img src="../static/images/cigare_soorati.jpeg" alt="cigare_soorati" class="img-fluid">    
+                    <div class="caption-container">
+                        <figcaption>
                             <h2>cigare_soorati</h2>
                         </figcaption>                    
-                    </figure>
-
                         <audio controls>
                             <source src="../static/music/cigare_soorati.mp3">
                         </audio>
+                    </div>
                 </div>
-            <!-- triangolu  -->
-                <div class="music_box">
-                    <figure>
-                        <img src="../static/images/triangolu.jpeg" alt="triangolu" class="img-fluid">
-                        <figcaption class="caption d-flex align-items-center justify-content-center">
-                            <h2>triangolu</h2>
+                <!-- a post -->
+                <div class="post_container">
+                    <img src="../static/images/kolmnurk.jpeg" alt="kolmnurk" class="img-fluid">
+                    <div class="caption-container">
+                        <figcaption>
+                            <h2>kolmnurk</h2>
                         </figcaption>                    
-                    </figure>
-
-                    <audio controls>
-                        <source src="../static/music/triangolu.mp3">
-                    </audio>
+                        <audio controls>
+                            <source src="../static/music/kolmnurk.mp3">
+                        </audio>
+                    </div>
                 </div>
-
-            </div>
-
         </main>
-    </div>
-    
+    <!-- includes script -->
     <script
     type="text/javascript"
     src="{{ url_for('static', filename='app.js') }}"    
     >
     </script>
+
 {% endblock %}

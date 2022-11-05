@@ -3,7 +3,7 @@ user_input = document.querySelector(".index header .query-box")
 //accessing query btn
 btn = document.querySelector(".index header .query-btn")
 // accesses all songs elements
-data = document.querySelectorAll(".caption h2")
+data = document.querySelectorAll("figcaption h2")
 
 
 
@@ -30,6 +30,7 @@ btn.addEventListener("click", () => {
 
 // makes each song listen for click
 arr = document.querySelectorAll(".img-fluid")
+console.log(arr)
 for (let i = 0; i < arr.length; i++) {
     arr[i].addEventListener("click", () => {
         // adds "song"  to url so that app loads the page
