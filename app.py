@@ -143,4 +143,4 @@ def song():
 
 if __name__ == "__main__":
     app.config["SECRET_KEY"] = "fuckfuckfuck"
-    app.run(debug=True)
+    app.run()
