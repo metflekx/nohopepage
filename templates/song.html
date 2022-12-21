@@ -3,21 +3,36 @@
     song
 {% endblock %}
 {% block body %}
+    <!-- linking script, makes a music box
+    with a song title, renders mp3 and artwork.-->
     <div class="song">
-    {% if session["user_id"] %}
-        <form method="post" class="comment-form">
-            <label for="comment">comment : </label>
-            <textarea class="form-control" name="comment" rows="3"></textarea>
-            <button type="submit">post comment</button>
-        </form>
-    {% endif %}
-    <div class="comment_section container">
-        {% for each in comments_list %}
-            <div class="comment_box">
-                <h4 class="commenter"> {{ each["username"] }}</h4>
-                <p class="comment">{{ each["message"] }}</p>
-            </div>
-        {% endfor %}
-    </div>
-    </div>
+        <script
+            type="text/javascript"
+            src="{{ url_for('static', filename='song.js') }}"    
+            >
+        </script>
+        <!-- creates a comment section, gets the comment message from
+        database and the username of commenter and dispays.
+        --> 
+        <div class="comment_section container">
+            {% for each in comments_list %}
+                <div class="comment_box">
+                    <h4 class="commenter"> {{ each["username"] }}</h4>
+                    <p class="comment">{{ each["message"] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <!-- a valid user who logged in can add comment using this form,
+        the comment message and the commenter's username will be posted to my end.
+        the comment message and commenter's username is to be saved in the database.
+        -->
+        {% if session["user_id"] %} <!-- if a registered user is logged in -->
+            <form method="post" class="comment-form">
+                <label for="comment">add comment : </label>
+                <textarea class="form-control" name="comment" rows="3"></textarea>
+                <button type="submit">post comment</button>
+            </form>
+        {% endif %}
+    </div><!-- end the song div -->
+        
 {% endblock %}

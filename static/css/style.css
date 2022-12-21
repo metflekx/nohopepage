@@ -106,6 +106,7 @@ body {
 .song {
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -126,6 +127,11 @@ body {
     border: white 0.5rem solid;
     color: white;
     margin: 2em;
+}
+
+.comment-form{
+    border:1px solid white; 
+    padding:10rem;
 }
 
 .wiki {

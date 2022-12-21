@@ -25,4 +25,5 @@ function create_music(title) {
 // getting title from url
 title = window.location.search.slice(9)
 // creating post passing in title
+console.log(title)
 create_music(title)
